@@ -39,7 +39,7 @@
 /* Begin PBXFileReference section */
 		048CAE84310F2CE38DECB9F4 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		31AA42B21F4D5366B09A6A87 /* libPods-KMOnlineWeb_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KMOnlineWeb_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4E7C1B61D39B698158E6F164 /* KMOnlineWeb.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = KMOnlineWeb.podspec; path = ../KMOnlineWeb.podspec; sourceTree = "<group>"; };
+		4E7C1B61D39B698158E6F164 /* KMOnlineWeb.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = KMOnlineWeb.podspec; path = ../KMOnlineWeb.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		6003F58A195388D20070C39A /* KMOnlineWeb_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KMOnlineWeb_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };

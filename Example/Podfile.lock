@@ -3,7 +3,7 @@ PODS:
   - Alamofire (4.9.1)
   - ISVImageScrollView (0.1.2)
   - Kingfisher (4.10.1)
-  - KMAgoraRtc (1.0.4):
+  - KMAgoraRtc (1.0.5):
     - AgoraRtcEngine_iOS
     - Kingfisher
     - SnapKit
@@ -82,10 +82,10 @@ SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   ISVImageScrollView: ba511d12a1661b40feb8921309c0854bf93ec749
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
-  KMAgoraRtc: 55e85e1f7466a766db2b4f001b30b803deec566d
+  KMAgoraRtc: 00f1b3d7a45cf8f60a2cdf7797d205e0d95c85c3
   KMNavigationExtension: 621e9aa67eb260a1a9717ee2f479021afe6315f1
   KMNetwork: 10f0daf08e5c5b22534da2c9aa835d26165bc549
-  KMOnlineWeb: 492fb284f43fa94749ad42300fb739d689c144fd
+  KMOnlineWeb: 2e06d58ade86fe1cffbf162331b4a2dc5da8eac2
   KMTIMSDK: da46a0ef39ceea67cff4b16607a05eb16f9ad687
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJExtension: 635f2c663dcb1bf76fa4b715b2570a5710aec545

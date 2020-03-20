@@ -27,8 +27,10 @@ TODO: Add long description of the pod here.
   s.author           = { 'zhenlove' => '121910347@qq.com' }
   s.source           = { :git => 'https://github.com/zhenlove/KMOnlineWeb.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
-
+  s.xcconfig     = { 'VALID_ARCHS' => 'armv7 arm64 x86_64', }
+  s.swift_versions = '5.0'
   s.ios.deployment_target = '9.0'
+  s.public_header_files = 'KMOnlineWeb/Classes/**/*h'
   s.source_files = 'KMOnlineWeb/Classes/**/*{h,m}'
    s.dependency 'Masonry'
    s.dependency 'MJExtension'

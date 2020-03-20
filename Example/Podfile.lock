@@ -1,0 +1,102 @@
+PODS:
+  - AgoraRtcEngine_iOS (3.0.0)
+  - Alamofire (4.9.1)
+  - ISVImageScrollView (0.1.2)
+  - Kingfisher (4.10.1)
+  - KMAgoraRtc (1.0.4):
+    - AgoraRtcEngine_iOS
+    - Kingfisher
+    - SnapKit
+  - KMNavigationExtension (2.3)
+  - KMNetwork (0.1.1):
+    - Alamofire
+  - KMOnlineWeb (0.1.0):
+    - KMAgoraRtc
+    - KMNavigationExtension
+    - KMNetwork
+    - KMTIMSDK
+    - Masonry
+    - MJExtension
+    - SDWebImage
+  - KMTIMSDK (0.1.0):
+    - KMTIMSDK/KMIMBase (= 0.1.0)
+    - KMTIMSDK/KMPatientInfo (= 0.1.0)
+    - KMTIMSDK/KMTools (= 0.1.0)
+  - KMTIMSDK/KMIMBase (0.1.0):
+    - KMTIMSDK/KMPatientInfo
+    - KMTIMSDK/KMTools
+    - ReactiveObjC
+    - TXIMSDK_TUIKit_iOS
+  - KMTIMSDK/KMPatientInfo (0.1.0):
+    - KMTIMSDK/KMTools
+    - Masonry
+    - SDWebImage
+  - KMTIMSDK/KMTools (0.1.0)
+  - Masonry (1.1.0)
+  - MJExtension (3.2.1)
+  - MMLayout (0.2.0)
+  - ReactiveObjC (3.1.1)
+  - SDWebImage (5.6.1):
+    - SDWebImage/Core (= 5.6.1)
+  - SDWebImage/Core (5.6.1)
+  - SnapKit (4.2.0)
+  - Toast (4.0.0)
+  - TXIMSDK_iOS (4.6.102)
+  - TXIMSDK_TUIKit_iOS (4.6.58):
+    - ISVImageScrollView
+    - MMLayout (= 0.2.0)
+    - ReactiveObjC
+    - SDWebImage
+    - Toast
+    - TXIMSDK_iOS
+
+DEPENDENCIES:
+  - KMOnlineWeb (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - AgoraRtcEngine_iOS
+    - Alamofire
+    - ISVImageScrollView
+    - Kingfisher
+    - KMAgoraRtc
+    - KMNavigationExtension
+    - KMNetwork
+    - KMTIMSDK
+    - Masonry
+    - MJExtension
+    - MMLayout
+    - ReactiveObjC
+    - SDWebImage
+    - SnapKit
+    - Toast
+    - TXIMSDK_iOS
+    - TXIMSDK_TUIKit_iOS
+
+EXTERNAL SOURCES:
+  KMOnlineWeb:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  AgoraRtcEngine_iOS: faaa446c165609e055f7ff56268ccb429e081e57
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  ISVImageScrollView: ba511d12a1661b40feb8921309c0854bf93ec749
+  Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
+  KMAgoraRtc: 55e85e1f7466a766db2b4f001b30b803deec566d
+  KMNavigationExtension: 621e9aa67eb260a1a9717ee2f479021afe6315f1
+  KMNetwork: 10f0daf08e5c5b22534da2c9aa835d26165bc549
+  KMOnlineWeb: 492fb284f43fa94749ad42300fb739d689c144fd
+  KMTIMSDK: da46a0ef39ceea67cff4b16607a05eb16f9ad687
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MJExtension: 635f2c663dcb1bf76fa4b715b2570a5710aec545
+  MMLayout: 3fb59d58eeb8656c64e61d550fb0088e10666c11
+  ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
+  SDWebImage: 7edb9c3ea661e77a66661f7f044de8c1b55d1120
+  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
+  Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
+  TXIMSDK_iOS: e2f691308b9f27f51ba93d53af71254cfe1bfa5c
+  TXIMSDK_TUIKit_iOS: 07d410f70bd3601506d1b0f219174fc1eed76ef9
+
+PODFILE CHECKSUM: 3f2052f14f3c3699eab47b4023da41774667f9b0
+
+COCOAPODS: 1.8.4

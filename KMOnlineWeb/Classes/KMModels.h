@@ -31,6 +31,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString * UserID;
 @property (nonatomic, strong) NSString * UserToken;
 @property (nonatomic, assign) NSInteger UserType;
+
+-(instancetype)initWithDictionary:(NSDictionary *)dictionary;
 @end
 
 @interface KMIMConfigModel : NSObject
@@ -38,6 +40,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString * userSig;
 @property (nonatomic, copy) NSString * identifier;
 @property (nonatomic, copy) NSString * accountType;
+@property (nonatomic, copy) NSString * manageSessId;
+-(instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
 @end
 
@@ -50,6 +54,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString * PrivMapEncrypt;
 @property (nonatomic, assign) NSInteger SdkAppID;
 @property (nonatomic, strong) NSString * UserSig;
+-(instancetype)initWithDictionary:(NSDictionary *)dictionary;
 @end
 
 @interface KMMediaConfigModel : NSObject
@@ -64,6 +69,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString * Secret;
 @property (nonatomic, assign) NSInteger TotalTime;
 @property (nonatomic, assign) BOOL Video;
+-(instancetype)initWithDictionary:(NSDictionary *)dictionary;
 @end
 
 NS_ASSUME_NONNULL_END

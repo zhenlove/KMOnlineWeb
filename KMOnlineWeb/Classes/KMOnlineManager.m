@@ -6,16 +6,15 @@
 //
 
 #import "KMOnlineManager.h"
-#import <MJExtension/MJExtension.h>
 #import "KMModels.h"
 #import "KMWebViewController.h"
-#import <KMNavigationExtension/JZNavigationExtension.h>
 @import KMNetwork;
 
 @interface KMOnlineManager()
 @property (nonatomic,strong) KMUserInfoModel * userInfoModel;
 @property (nonatomic,copy) NSString *baseUrl;
 @property (nonatomic,weak) UIViewController * fromVC;
+@property (nonatomic,assign) BOOL isRequesting;
 @end
 
 @implementation KMOnlineManager
@@ -31,21 +30,33 @@
 - (void)reloadWebViewWithUrl:(NSString *)url withDic:(NSDictionary *)dic showViewController:(UIViewController *)vc {
     self.baseUrl = url;
     self.fromVC = vc;
-    
+    if (!self.isRequesting) {
+        self.isRequesting = YES;
+        [self performSelector:@selector(loginOnlineWithParam:) withObject:dic afterDelay:0];
+    }
+}
+
+- (void)loginOnlineWithParam:(NSDictionary *)dic {
     __weak typeof(self)weakSelf = self;
     NSString * urls = [[KMServiceModel sharedInstance].baseURL stringByAppendingString:@"/users/InterLoginNoAccount"];
+//    [KMNetwork requestWithUrl:urls method:@"POST" parameters:dic isHttpBody:false callback:^(NSDictionary<NSString *,id> * _Nullable result, NSError * _Nullable error) {
+//
+//    }];
     [KMNetwork requestWithUrl:urls
                        method:@"POST"
                    parameters:dic
                    isHttpBody:false
-                requestSucess:^(NSHTTPURLResponse * _Nullable response, NSDictionary<NSString *,id> * _Nullable result) {
-        
-        weakSelf.userInfoModel = [KMUserInfoModel mj_objectWithKeyValues:result[@"Data"]];
-        [KMServiceModel sharedInstance].usertoken = weakSelf.userInfoModel.UserToken;
-        [weakSelf showViewController];
-        
-    } requestFailure:^(NSHTTPURLResponse * _Nullable response, NSError * _Nullable error) {
-        NSLog(@"登录失败");
+                     callBack:^(NSDictionary* _Nullable result, NSError * _Nullable error) {
+        if (result) {
+            weakSelf.isRequesting = NO;
+            weakSelf.userInfoModel = [[KMUserInfoModel alloc]initWithDictionary:result[@"Data"]];
+            [KMServiceModel sharedInstance].usertoken = weakSelf.userInfoModel.UserToken;
+            [weakSelf showViewController];
+        }
+        if (error) {
+            NSLog(@"登录失败");
+            weakSelf.isRequesting = NO;
+        }
     }];
 }
 
@@ -60,8 +71,6 @@
     KMWebViewController * webViewController = [[KMWebViewController alloc]init];
     webViewController.urlString = urlString;
     webViewController.userInfoModel = self.userInfoModel;
-    webViewController.jz_navigationBarHidden = true;
-    self.fromVC.navigationController.jz_navigationBarHidden = false;
     [self.fromVC.navigationController pushViewController:webViewController animated:true];
     
 }

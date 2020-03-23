@@ -8,10 +8,16 @@
 
 #import "KMAppDelegate.h"
 #import "KMViewController.h"
+#ifdef DEBUG
+#import <Bagel/Bagel.h>
+#endif
 @implementation KMAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    #ifdef DEBUG
+        [Bagel start];
+    #endif
     // Override point for customization after application launch.
     self.window=[[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     

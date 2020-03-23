@@ -8,11 +8,8 @@
 
 #import "KMWebViewController.h"
 #import "KMH5WebView.h"
-
-#import <Masonry/Masonry.h>
-#import <MJExtension/MJExtension.h>
+#import <ImSDK/ImSDK.h>
 #import <KMTIMSDK/KMTIMSDK.h>
-#import <SDWebImage/SDWebImage.h>
 @import KMNetwork;
 @import KMAgoraRtc;
 
@@ -28,10 +25,17 @@ typedef NS_ENUM(NSInteger, KMRoomState) {
     KMRoomState_PatientsLeaving = 6//患者离开
 };
 
-@interface KMWebViewController ()<KMH5JSCallBackDelegate,KMFloatViewManagerDelegate,KMRoomStateListenerDelegate,KMCallingSystemOperationDelegate,KMCallInfoModel>
+@interface KMWebViewController ()
+<KMH5JSCallBackDelegate,
+KMFloatViewManagerDelegate,
+KMRoomStateListenerDelegate,
+KMCallingSystemOperationDelegate,
+KMCallInfoModel,
+UINavigationControllerDelegate>
 @property (nonatomic,strong) KMH5WebView * h5WebView;
 @property (nonatomic,strong) KMIMConfigModel * imConfigModel;
 @property (nonatomic,strong) KMMediaConfigModel * mediaConfigModel;
+@property (nonatomic,assign) BOOL isRequesting;
 @end
 
 @implementation KMWebViewController
@@ -47,15 +51,21 @@ typedef NS_ENUM(NSInteger, KMRoomState) {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     [KMFloatViewManager sharedInstance].delegate = self;
-    
+    self.navigationController.delegate = self;
     [self.view addSubview:self.h5WebView];
-    [self.h5WebView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.view).insets(UIEdgeInsetsMake(20, 0, 0, 0));
-    }];
+    
+    CGFloat statusHeight = [[UIApplication sharedApplication] statusBarFrame].size.height;
+    CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
+    CGFloat screenHeight= [UIScreen mainScreen].bounds.size.height;
+    self.h5WebView.frame = CGRectMake(0, statusHeight, screenWidth, screenHeight-statusHeight);
+
     self.h5WebView.urlString = self.urlString;
     [self.h5WebView startLoadRequest];
     [self performSelector:@selector(requestIMConfig) withObject:nil afterDelay:0.1];
     // Do any additional setup after loading the view.
+}
+-(void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
+    [self.navigationController setNavigationBarHidden:[viewController isKindOfClass:[self class]] animated:true];
 }
 
 -(void)dealloc{
@@ -71,16 +81,19 @@ typedef NS_ENUM(NSInteger, KMRoomState) {
 -(void)requestIMConfig {
     __weak typeof(self)weakSelf = self;
     NSString * url = [[KMServiceModel sharedInstance].baseURL stringByAppendingString:@"/IM/Config"];
+
     [KMNetwork requestWithUrl:url
                        method:@"GET"
                    parameters:nil
                    isHttpBody:false
-                requestSucess:^(NSHTTPURLResponse * _Nullable response, NSDictionary<NSString *,id> * _Nullable result) {
-        weakSelf.imConfigModel = [KMIMConfigModel mj_objectWithKeyValues:result[@"Data"]];
-        [weakSelf logInIM];
-        
-    } requestFailure:^(NSHTTPURLResponse * _Nullable response , NSError * _Nullable error) {
-        
+                     callBack:^(NSDictionary<NSString *,id> * _Nullable result, NSError * _Nullable error) {
+        if (result) {
+            weakSelf.imConfigModel = [[KMIMConfigModel alloc]initWithDictionary:result[@"Data"]];//[KMIMConfigModel mj_objectWithKeyValues:result[@"Data"]];
+            [weakSelf logInIM];
+        }
+        if (error) {
+            NSLog(@"获取IM配置失败");
+        }
     }];
 }
 // 登录IM
@@ -107,16 +120,21 @@ typedef NS_ENUM(NSInteger, KMRoomState) {
     __weak typeof(self)weakSelf = self;
     NSString * url = [[KMServiceModel sharedInstance].baseURL stringByAppendingString:@"/IM/MediaConfig"];
     NSDictionary *paramsDict = @{@"ChannelID":[NSNumber numberWithInteger:channelID.integerValue],@"Identifier":self.imConfigModel.identifier};
+
     [KMNetwork requestWithUrl:url
                        method:@"GET"
                    parameters:paramsDict
                    isHttpBody:false
-                requestSucess:^(NSHTTPURLResponse * _Nullable response, NSDictionary<NSString *,id> * _Nullable result) {
-        weakSelf.mediaConfigModel = [KMMediaConfigModel mj_objectWithKeyValues:result[@"Data"]];
-        //进入诊室
-        [weakSelf updateChatRoomChannelID:weakSelf.mediaConfigModel.ILiveConfig.ChannelID state:KMRoomState_Waiting];
-    } requestFailure:^(NSHTTPURLResponse * _Nullable response , NSError * _Nullable error) {
-        
+                     callBack:^(NSDictionary<NSString *,id> * _Nullable result, NSError * _Nullable error) {
+        weakSelf.isRequesting = NO;
+        if (result) {
+            weakSelf.mediaConfigModel = [[KMMediaConfigModel alloc]initWithDictionary:result[@"Data"]];//[KMMediaConfigModel mj_objectWithKeyValues:result[@"Data"]];
+            //进入诊室
+            [weakSelf updateChatRoomChannelID:weakSelf.mediaConfigModel.ILiveConfig.ChannelID state:KMRoomState_Waiting];
+        }
+        if (error) {
+            NSLog(@"获取媒体配置失败");
+        }
     }];
 }
 // 设置房间状态
@@ -127,10 +145,13 @@ typedef NS_ENUM(NSInteger, KMRoomState) {
                        method:@"PUT"
                    parameters:paramsDict
                    isHttpBody:false
-                requestSucess:^(NSHTTPURLResponse * _Nullable response, NSDictionary<NSString *,id> * _Nullable result) {
-        NSLog(@"设置房间状态--成功");
-    } requestFailure:^(NSHTTPURLResponse * _Nullable response , NSError * _Nullable error) {
-        NSLog(@"设置房间状态--失败");
+                     callBack:^(NSDictionary<NSString *,id> * _Nullable result, NSError * _Nullable error) {
+        if (result) {
+            NSLog(@"设置房间状态--成功");
+        }
+        if (error) {
+            NSLog(@"设置房间状态--失败");
+        }
     }];
 }
 
@@ -196,8 +217,10 @@ typedef NS_ENUM(NSInteger, KMRoomState) {
     NSString * ChanelId = [[pDictionary objectForKey:@"ChannelID"] stringValue];
     _callName = pDictionary[@"UserName"];
     _callImage = pDictionary[@"UserFace"];
-    [self getMediaConfigWithChannelID:ChanelId];
-
+    if (!self.isRequesting) {
+        self.isRequesting = YES;
+        [self getMediaConfigWithChannelID:ChanelId];
+    }
 }
 
 

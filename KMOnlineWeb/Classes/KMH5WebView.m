@@ -8,7 +8,6 @@
 
 #import "KMH5WebView.h"
 #import <JavaScriptCore/JavaScriptCore.h>
-#import <Masonry/Masonry.h>
 
 
 @protocol JSObjcCall <JSExport>
@@ -21,14 +20,9 @@
 
 @interface KMH5WebView()<UIWebViewDelegate,JSObjcCall>
 @property (nonatomic,strong) NSURLRequest * request;
-
-@property (nonatomic,strong) NSDictionary * dataDict;
-
 @property (nonatomic, strong) JSContext *jsCallContext;
 @property (nonatomic, strong) JSContext *jsNativeContext;
-
 @property (nonatomic,strong) UIActivityIndicatorView * activityIndicatorView;
-
 @end
 
 
@@ -46,71 +40,43 @@
 -(UIActivityIndicatorView *)activityIndicatorView{
     if (!_activityIndicatorView) {
         _activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        _activityIndicatorView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
+        [_activityIndicatorView startAnimating];
+        _activityIndicatorView.hidden = YES;
     }
     return _activityIndicatorView;
+}
+-(UIWebView *)webView {
+    if (!_webView) {
+        _webView = [[UIWebView alloc] init];
+        _webView.delegate = self;
+        CGFloat statusHeight = [[UIApplication sharedApplication] statusBarFrame].size.height;
+        CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
+        CGFloat screenHeight= [UIScreen mainScreen].bounds.size.height;
+        _webView.frame = CGRectMake(0, 0, screenWidth, screenHeight-statusHeight);
+        if (@available(iOS 11.0,*)) {
+            _webView.scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        }
+    }
+    return _webView;
 }
 
 -(instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self) {
-        self.webView = [[UIWebView alloc] initWithFrame:frame];
-        self.webView.delegate = self;
+
         [self addSubview:self.webView];
-        
-        if (CGRectEqualToRect(frame, CGRectZero)) {
-            [self.webView mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.edges.equalTo(self);
-            }];
-        }
-        
         [self addSubview:self.activityIndicatorView];
-        [self.activityIndicatorView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.center.equalTo(self);
-        }];
-        
-        [self.activityIndicatorView startAnimating];
+        self.activityIndicatorView.center = self.webView.center;
     }
     return self;
 }
 
--(instancetype)init{
-    self = [super init];
-    if (self) {
-        self.webView = [[UIWebView alloc] init];
-        self.webView.delegate = self;
-        if (@available(iOS 11.0, *)) {
-            self.webView.scrollView.contentInsetAdjustmentBehavior = UIApplicationBackgroundFetchIntervalNever;
-        }
-        [self addSubview:self.webView];
-        [self.webView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.equalTo(self);
-        }];
-        
-        [self addSubview:self.activityIndicatorView];
-        [self.activityIndicatorView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.center.equalTo(self);
-        }];
-
-        [self.activityIndicatorView startAnimating];
-
-    }
-    return self;
-}
 
 
 -(void)setHiddenActivity:(BOOL)hiddenActivity{
     _hiddenActivity = hiddenActivity;
-    if (_hiddenActivity) {
-//        if ([self.activityIndicatorView isSubContentOf:self]) {
-//            [self.activityIndicatorView removeFromSuperview];
-//        }
-        [self.activityIndicatorView removeFromSuperview];
-    }else{
-//        if (![self.activityIndicatorView isSubContentOf:self]) {
-//            [self addSubview:self.activityIndicatorView];
-//        }
-        [self addSubview:self.activityIndicatorView];
-    }
+    self.activityIndicatorView.hidden = _hiddenActivity;
 }
 
 -(void)setUrl:(NSURL *)url{
@@ -132,14 +98,17 @@
 
 
 #pragma mark UIWebViewDelegate
+
+- (void)webViewDidStartLoad:(UIWebView *)webView{
+    self.hiddenActivity  = NO;
+}
+
 -(void)webViewDidFinishLoad:(UIWebView *)webView{
-    
-//    [self.webView.scrollView.mj_header endRefreshing];
-    
-    [self.activityIndicatorView stopAnimating];
+        
+    self.hiddenActivity = YES;
 
     
-    NSLog(@"lod finsh");
+    NSLog(@"load finsh");
     self.jsCallContext = [webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
     //将tianbai对象指向自身
     self.jsCallContext[@"android"] = self;
@@ -147,14 +116,6 @@
         context.exception = exceptionValue;
         NSLog(@"异常信息：%@", exceptionValue);
     };
-    
-//    self.jsBackContext = [webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
-//    //将tianbai对象指向自身
-//    self.jsBackContext[@"robot"] = self;
-//    self.jsBackContext.exceptionHandler = ^(JSContext *context, JSValue *exceptionValue) {
-//        context.exception = exceptionValue;
-//        NSLog(@"异常信息：%@", exceptionValue);
-//    };
     
     self.jsNativeContext = [webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
     //将tianbai对象指向自身
@@ -192,15 +153,6 @@
 }
 
 
-//-(void)callAndroidMethod{
-//    NSLog(@"callAndroidMethod");
-//    dispatch_async(dispatch_get_main_queue(), ^{
-//        if (_delegate && [_delegate respondsToSelector:@selector(jsCallBack)]) {
-//            [_delegate jsCallBack];
-//        }
-//    });
-//}
-
 -(void)backToNative{
 
     NSLog(@"backToNative");
@@ -228,15 +180,7 @@
     JSValue * newToken = self.jsNativeContext[@"newToken"];
     if (newToken) {
         [self.jsNativeContext[@"native"] callWithArguments:@[loginInfoJSONStr]];
-        //    [newToken callWithArguments:@[loginInfoJSONStr]];
     }
-    
-    
-    
-    
-//    NSString * result = [self.webView stringByEvaluatingJavaScriptFromString:loginInfoJSONStr];
-//    NSLog(@"%@",result);
-//    self.jsNativeContext
 }
 
 

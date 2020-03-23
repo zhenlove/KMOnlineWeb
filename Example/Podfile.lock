@@ -1,5 +1,6 @@
 PODS:
   - AgoraRtcEngine_iOS (3.0.0)
+  - Alamofire (4.9.1)
   - Bagel (1.3.2):
     - CocoaAsyncSocket
   - CocoaAsyncSocket (7.6.3)
@@ -9,8 +10,11 @@ PODS:
     - AgoraRtcEngine_iOS
     - Kingfisher
     - SnapKit
-  - KMOnlineWeb (0.1.0):
+  - KMNetwork (0.1.2):
+    - Alamofire
+  - KMOnlineWeb (0.1.1):
     - KMAgoraRtc
+    - KMNetwork
     - KMTIMSDK
   - KMTIMSDK (0.1.0):
     - KMTIMSDK/KMIMBase (= 0.1.0)
@@ -51,11 +55,13 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - AgoraRtcEngine_iOS
+    - Alamofire
     - Bagel
     - CocoaAsyncSocket
     - ISVImageScrollView
     - Kingfisher
     - KMAgoraRtc
+    - KMNetwork
     - KMTIMSDK
     - Masonry
     - MMLayout
@@ -72,12 +78,14 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AgoraRtcEngine_iOS: faaa446c165609e055f7ff56268ccb429e081e57
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   Bagel: 199e0105ac694d6eee9db54dd006c940da6ce81b
   CocoaAsyncSocket: eafaa68a7e0ec99ead0a7b35015e0bf25d2c8987
   ISVImageScrollView: ba511d12a1661b40feb8921309c0854bf93ec749
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
   KMAgoraRtc: 00f1b3d7a45cf8f60a2cdf7797d205e0d95c85c3
-  KMOnlineWeb: 6eaef20e448f423a069bf67cba25864d112859fb
+  KMNetwork: 8d619cba15eb2863972f7cd6d2a073d91d582f17
+  KMOnlineWeb: 813ad31d250b1ffa45ebf5f3b62fa7ce277e644a
   KMTIMSDK: da46a0ef39ceea67cff4b16607a05eb16f9ad687
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MMLayout: 3fb59d58eeb8656c64e61d550fb0088e10666c11

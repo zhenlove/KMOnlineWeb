@@ -33,6 +33,6 @@ TODO: Add long description of the pod here.
   s.public_header_files = 'KMOnlineWeb/Classes/**/*h'
   s.source_files = 'KMOnlineWeb/Classes/**/*{h,m}'
   s.dependency 'KMTIMSDK'
-#  s.dependency 'KMNetwork'
+  s.dependency 'KMNetwork'
   s.dependency 'KMAgoraRtc'
 end

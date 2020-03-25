@@ -39,19 +39,20 @@
 - (void)loginOnlineWithParam:(NSDictionary *)dic {
     __weak typeof(self)weakSelf = self;
     NSString * urls = [[KMServiceModel sharedInstance].baseURL stringByAppendingString:@"/users/InterLoginNoAccount"];
-//    [KMNetwork requestWithUrl:urls method:@"POST" parameters:dic isHttpBody:false callback:^(NSDictionary<NSString *,id> * _Nullable result, NSError * _Nullable error) {
-//
-//    }];
     [KMNetwork requestWithUrl:urls
                        method:@"POST"
                    parameters:dic
                    isHttpBody:false
                      callBack:^(NSDictionary* _Nullable result, NSError * _Nullable error) {
         if (result) {
-            weakSelf.isRequesting = NO;
-            weakSelf.userInfoModel = [[KMUserInfoModel alloc]initWithDictionary:result[@"Data"]];
-            [KMServiceModel sharedInstance].usertoken = weakSelf.userInfoModel.UserToken;
-            [weakSelf showViewController];
+            if ([result[@"Status"] integerValue] == 0) {
+                weakSelf.isRequesting = NO;
+                weakSelf.userInfoModel = [[KMUserInfoModel alloc]initWithDictionary:result[@"Data"]];
+                [KMServiceModel sharedInstance].usertoken = weakSelf.userInfoModel.UserToken;
+                [weakSelf showViewController];
+            }else{
+                NSLog(@"%@",result[@"Msg"]);
+            }
         }
         if (error) {
             NSLog(@"登录失败");

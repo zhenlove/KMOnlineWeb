@@ -31,6 +31,7 @@ KMFloatViewManagerDelegate,
 KMRoomStateListenerDelegate,
 KMCallingSystemOperationDelegate,
 KMCallInfoModel,
+KMChatControllerDelegate,
 UINavigationControllerDelegate>
 @property (nonatomic,strong) KMH5WebView * h5WebView;
 @property (nonatomic,strong) KMIMConfigModel * imConfigModel;
@@ -75,7 +76,6 @@ UINavigationControllerDelegate>
 
 #pragma mark -
 #pragma mark -KMNetWork
-#pragma mark -
 
 // 获取IM配置
 -(void)requestIMConfig {
@@ -157,7 +157,6 @@ UINavigationControllerDelegate>
 
 #pragma mark -
 #pragma mark -KMRoomStateListenerDelegate
-#pragma mark -
 
 - (void)listenerToChannelID:(NSString *)channelID withCustomElem:(NSDictionary *)customElem {
     if ([self.mediaConfigModel.ILiveConfig.ChannelID isEqualToString:channelID]) {
@@ -173,17 +172,9 @@ UINavigationControllerDelegate>
 
 #pragma mark -
 #pragma mark -KMFloatViewManagerDelegate
-#pragma mark -
 - (void)clickedHangupButton{
     NSLog(@"挂断");
-    
-//    KMChatRoomState endState = KMChatRoomState_Waiting;
-//    if (KMNetworkConfigSharedInstance.userType == KMUserType_Doctor) {
-//        endState = KMChatRoomState_Consulted;
-//    }
-//    [weakSelf updateChatRoomWithRoomState:endState];
-    
-    [self updateChatRoomChannelID:self.mediaConfigModel.ILiveConfig.ChannelID state:KMRoomState_Waiting];
+    [self showTipInquiry];
 }
 - (void)clickedPrescribeButton{
     NSLog(@"开处方");
@@ -191,7 +182,6 @@ UINavigationControllerDelegate>
 
 #pragma mark -
 #pragma mark -KMH5JSCallBackDelegate
-#pragma mark -
 
 /**
  js回调图文咨询
@@ -204,6 +194,7 @@ UINavigationControllerDelegate>
     KMChatController  * chatController = [[KMChatController alloc]init];
     chatController.convId = ChanelId;
     chatController.title = @"图文问诊";
+    chatController.delegate = self;
     chatController.consulationState = ConsultState;
     [self.navigationController pushViewController:chatController animated:true];
     
@@ -255,25 +246,66 @@ UINavigationControllerDelegate>
 }
 #pragma mark -
 #pragma mark -KMCallingSystemOperationDelegate
-#pragma mark -
 -(void)answerCallingInKMCallingOperation {
     //设置接听
     [self updateChatRoomChannelID:self.mediaConfigModel.ILiveConfig.ChannelID state:KMRoomState_Consulting];
     //进入图文
     KMChatController  * chatController = [[KMChatController alloc]init];
     chatController.convId = self.mediaConfigModel.ILiveConfig.ChannelID;
+    chatController.delegate = self;
     chatController.title = @"视频问诊";
     [self.navigationController pushViewController:chatController animated:true];
     //进入视频
-    NSNumber *number = [NSNumber numberWithInteger:self.mediaConfigModel.ILiveConfig.Identifier.integerValue];
+    NSNumber *userId = [NSNumber numberWithInteger:self.mediaConfigModel.ILiveConfig.Identifier.integerValue];
     [[KMFloatViewManager sharedInstance] showViewWithChannelKey:self.mediaConfigModel.MediaChannelKey
                                                       channelId:self.mediaConfigModel.ILiveConfig.ChannelID
-                                                         userId:number.unsignedIntegerValue
+                                                         userId:userId.unsignedIntegerValue
                                                           appId:self.mediaConfigModel.AppID
                                                        userType:1];
 }
 -(void)rejectedCallingInKMCallingOperation {
     //设置挂断
     [self updateChatRoomChannelID:self.mediaConfigModel.ILiveConfig.ChannelID state:KMRoomState_Waiting];
+}
+#pragma mark -
+#pragma mark -KMChatControllerDelegate
+/// 点击患者咨询
+-(void)clickePatientInfo:(NSDictionary *)patientInfoDic{
+    KMPatientInfoVC * infoVC  = [[KMPatientInfoVC alloc] init];
+    infoVC.userInfoDic = patientInfoDic;
+    [self.navigationController pushViewController:infoVC animated:YES];
+}
+
+/// 点击处方
+-(void)clickePrescribe:(NSString *)prescribeUrl oPDRegisterID:(NSString *)OPDRegisterID{
+    KMIMWebViewController *webView = [[KMIMWebViewController alloc]init];
+    webView.prescribeUrl = prescribeUrl;
+    [self.navigationController pushViewController:webView animated:YES];
+}
+
+/// 点击返回
+- (BOOL)clickeBackBtnController {
+    if ([KMFloatViewManager sharedInstance].isShow) {
+        [self showTipInquiry];
+        return NO;
+    }else{
+        return YES;
+    }
+}
+/// 退出本次问诊
+-(void)showTipInquiry {
+    __weak typeof(self) weakSelf = self;
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"温馨提示"
+                                                                             message:@"确定要退出本次问诊？"
+                                                                      preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [weakSelf updateChatRoomChannelID:self.mediaConfigModel.ILiveConfig.ChannelID state:KMRoomState_NoVisit];
+        [[KMFloatViewManager sharedInstance] dissView];
+        [weakSelf.navigationController popViewControllerAnimated:true];
+    }];
+    [alertController addAction:cancelAction];
+    [alertController addAction:okAction];
+    [self.navigationController presentViewController:alertController animated:YES completion:nil];
 }
 @end

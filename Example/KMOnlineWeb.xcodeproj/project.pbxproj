@@ -209,8 +209,8 @@
 				6003F586195388D20070C39A /* Sources */,
 				6003F587195388D20070C39A /* Frameworks */,
 				6003F588195388D20070C39A /* Resources */,
-				04D8B81A09605016F5F05889 /* [CP] Copy Pods Resources */,
-				AF679B9DFB3D5AC87C4C61F8 /* [CP] Embed Pods Frameworks */,
+				1134631A55A239CB117BF2A8 /* [CP] Embed Pods Frameworks */,
+				D67EB9DDB75C005669DF7AEF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -302,28 +302,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		04D8B81A09605016F5F05889 /* [CP] Copy Pods Resources */ = {
+		1134631A55A239CB117BF2A8 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-KMOnlineWeb_Example/Pods-KMOnlineWeb_Example-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/KMAgoraRtc/AgoraRtc.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/KMTIMSDK/KMTIMImage.bundle",
-				"${PODS_ROOT}/TXIMSDK_TUIKit_iOS/TUIKit/Resources/TUIKitFace.bundle",
-				"${PODS_ROOT}/TXIMSDK_TUIKit_iOS/TUIKit/Resources/TUIKitResource.bundle",
+				"${PODS_ROOT}/Target Support Files/Pods-KMOnlineWeb_Example/Pods-KMOnlineWeb_Example-frameworks.sh",
+				"${PODS_ROOT}/TXIMSDK_iOS/ImSDK.framework",
 			);
-			name = "[CP] Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AgoraRtc.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/KMTIMImage.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TUIKitFace.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TUIKitResource.bundle",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImSDK.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KMOnlineWeb_Example/Pods-KMOnlineWeb_Example-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KMOnlineWeb_Example/Pods-KMOnlineWeb_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		4C40B5C80E63CCD3B0DDA7B8 /* [CP] Check Pods Manifest.lock */ = {
@@ -370,22 +364,28 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		AF679B9DFB3D5AC87C4C61F8 /* [CP] Embed Pods Frameworks */ = {
+		D67EB9DDB75C005669DF7AEF /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-KMOnlineWeb_Example/Pods-KMOnlineWeb_Example-frameworks.sh",
-				"${PODS_ROOT}/TXIMSDK_iOS/ImSDK.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-KMOnlineWeb_Example/Pods-KMOnlineWeb_Example-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/KMAgoraRtc/AgoraRtc.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/KMTIMSDK/KMTIMImage.bundle",
+				"${PODS_ROOT}/TXIMSDK_TUIKit_iOS/TUIKit/Resources/TUIKitFace.bundle",
+				"${PODS_ROOT}/TXIMSDK_TUIKit_iOS/TUIKit/Resources/TUIKitResource.bundle",
 			);
-			name = "[CP] Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImSDK.framework",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AgoraRtc.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/KMTIMImage.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TUIKitFace.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TUIKitResource.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KMOnlineWeb_Example/Pods-KMOnlineWeb_Example-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KMOnlineWeb_Example/Pods-KMOnlineWeb_Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

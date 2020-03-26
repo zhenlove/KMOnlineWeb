@@ -9,7 +9,10 @@
 #import "KMWebViewController.h"
 #import "KMH5WebView.h"
 #import <ImSDK/ImSDK.h>
-#import <KMTIMSDK/KMTIMSDK.h>
+#import <KMTIMSDK/KMTIMManager.h>
+#import <KMTIMSDK/KMChatController.h>
+#import <KMTIMSDK/KMPatientInfoVC.h>
+#import <KMTIMSDK/KMIMWebViewController.h>
 @import KMNetwork;
 @import KMAgoraRtc;
 

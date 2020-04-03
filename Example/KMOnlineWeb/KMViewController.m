@@ -7,9 +7,10 @@
 //
 
 #import "KMViewController.h"
-#import "KMOnlineManager.h"
-#import <KMOnlineWeb/KMOnlineManager.h>
+//#import "KMOnlineManager.h"
+//#import <KMOnlineWeb/KMOnlineManager.h>
 @import KMNetwork;
+@import KMOnlineWeb;
 @interface KMViewController ()
 
 @end
@@ -41,9 +42,14 @@
                            @"IdNumber":@"",
                            @"HeadUrl":@"",
                            @"OrgID":@"B1F0AF7AB9624847A3DDAFD573E2ECF0"};
-    [[KMOnlineManager sharedInstance] reloadWebViewWithUrl:@"https://pruser.kmwlyy.com/h5/"
-                                                   withDic:dic
-                                        showViewController:self];
+//    [[KMOnlineManager sharedInstance] reloadWebViewWithUrl:@"https://pruser.kmwlyy.com/h5/"
+//                                                   withDic:dic
+//                                        showViewController:self];
+    
+    [[OnlineWebManager sharedInstance] reloadWebViewWithUrl:@"https://pruser.kmwlyy.com/h5/"
+                                                userInfoDic:dic
+                                         showViewController:self];
+    
 }
 
 @end

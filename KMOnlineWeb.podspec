@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'KMOnlineWeb'
-  s.version          = '0.1.3'
+  s.version          = '0.1.4'
   s.summary          = 'A short description of KMOnlineWeb.'
 
 # This description is used to generate tags and improve search results.
@@ -29,9 +29,13 @@ TODO: Add long description of the pod here.
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
   s.xcconfig     = { 'VALID_ARCHS' => 'armv7 arm64 x86_64', }
   s.ios.deployment_target = '9.0'
-  s.public_header_files = 'KMOnlineWeb/Classes/**/*h'
-  s.source_files = 'KMOnlineWeb/Classes/**/*{h,m}'
+  s.swift_version = '5.0'
+  s.source_files = 'KMOnlineWeb/Classes/**/*{swift}'
+  s.resource_bundles = {
+    'KMOnlineWeb' => ['KMOnlineWeb/Assets/*']
+  }
   s.dependency 'KMTIMSDK'
   s.dependency 'KMNetwork'
   s.dependency 'KMAgoraRtc'
+  s.dependency 'SDWebImage'
 end

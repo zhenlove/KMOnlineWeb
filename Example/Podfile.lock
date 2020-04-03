@@ -16,6 +16,7 @@ PODS:
     - KMAgoraRtc
     - KMNetwork
     - KMTIMSDK
+    - SDWebImage
   - KMTIMSDK (0.1.1):
     - KMTIMSDK/KMIMBase (= 0.1.1)
     - KMTIMSDK/KMPatientInfo (= 0.1.1)
@@ -55,6 +56,8 @@ DEPENDENCIES:
   - Bagel (= 1.3.2)
   - CocoaAsyncSocket (= 7.6.3)
   - KMOnlineWeb (from `../`)
+  - KMTIMSDK
+  - SDWebImage
 
 SPEC REPOS:
   trunk:
@@ -89,7 +92,7 @@ SPEC CHECKSUMS:
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
   KMAgoraRtc: 46077d55e9d1d5ac6d748a142310a1b640c05ea4
   KMNetwork: 2983b3c0deaad382f1dfddf682bc48d6c5403c9a
-  KMOnlineWeb: c8ea09cc8bc9f4277b94ec66a9c4287b49f18118
+  KMOnlineWeb: 888c6dd48e6baea18942e24286031d9ffb69d668
   KMTIMSDK: 122c85b31ce1f3df0aca02bf4dd2c9ca4a1cfffe
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MMLayout: 3fb59d58eeb8656c64e61d550fb0088e10666c11
@@ -100,6 +103,6 @@ SPEC CHECKSUMS:
   TXIMSDK_iOS: 2506b27cfdf2aea3e4433b67870755d3a14b358c
   TXIMSDK_TUIKit_iOS: 7c5a6556929b590e3d2cfb85a865a3c5b28f4d87
 
-PODFILE CHECKSUM: 1ba57a3b6d85fc194d910340d0815f0d6d664b0f
+PODFILE CHECKSUM: 300060ec526cb4324b46ec097493d2c81c83f099
 
 COCOAPODS: 1.8.4

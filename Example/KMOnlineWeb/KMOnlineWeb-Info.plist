@@ -26,6 +26,12 @@
 	<true/>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
+	<key>NSCameraUsageDescription</key>
+	<string>XXX想使用您的相机，允许吗？</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>XXX想访问您的相册，允许吗？</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>XXX想使用您的麦克风，允许吗？</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

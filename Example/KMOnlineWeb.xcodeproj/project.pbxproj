@@ -22,6 +22,7 @@
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
+		6454450124348B7E00249867 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6454450024348B7E00249867 /* Photo.swift */; };
 		6459EC8624234E9100795828 /* KMTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6459EC8524234E9100795828 /* KMTest.swift */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -60,6 +61,7 @@
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		62DBAC249A2FD586D0E749BA /* Pods-KMOnlineWeb_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KMOnlineWeb_Tests.release.xcconfig"; path = "Target Support Files/Pods-KMOnlineWeb_Tests/Pods-KMOnlineWeb_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		6454450024348B7E00249867 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		6459EC8424234E9100795828 /* KMOnlineWeb_Example-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KMOnlineWeb_Example-Bridging-Header.h"; sourceTree = "<group>"; };
 		6459EC8524234E9100795828 /* KMTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMTest.swift; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				6003F594195388D20070C39A /* Supporting Files */,
 				6459EC8524234E9100795828 /* KMTest.swift */,
 				6459EC8424234E9100795828 /* KMOnlineWeb_Example-Bridging-Header.h */,
+				6454450024348B7E00249867 /* Photo.swift */,
 			);
 			name = "Example for KMOnlineWeb";
 			path = KMOnlineWeb;
@@ -372,6 +375,7 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-KMOnlineWeb_Example/Pods-KMOnlineWeb_Example-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/KMAgoraRtc/AgoraRtc.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/KMOnlineWeb/KMOnlineWeb.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/KMTIMSDK/KMTIMImage.bundle",
 				"${PODS_ROOT}/TXIMSDK_TUIKit_iOS/TUIKit/Resources/TUIKitFace.bundle",
 				"${PODS_ROOT}/TXIMSDK_TUIKit_iOS/TUIKit/Resources/TUIKitResource.bundle",
@@ -379,6 +383,7 @@
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AgoraRtc.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/KMOnlineWeb.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/KMTIMImage.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TUIKitFace.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TUIKitResource.bundle",
@@ -399,6 +404,7 @@
 				6003F5A7195388D20070C39A /* KMViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				6459EC8624234E9100795828 /* KMTest.swift in Sources */,
+				6454450124348B7E00249867 /* Photo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

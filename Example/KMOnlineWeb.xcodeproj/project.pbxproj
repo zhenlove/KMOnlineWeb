@@ -212,8 +212,8 @@
 				6003F586195388D20070C39A /* Sources */,
 				6003F587195388D20070C39A /* Frameworks */,
 				6003F588195388D20070C39A /* Resources */,
-				1134631A55A239CB117BF2A8 /* [CP] Embed Pods Frameworks */,
 				D67EB9DDB75C005669DF7AEF /* [CP] Copy Pods Resources */,
+				FCCD2CE1170C6EA90F8ACE82 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -305,24 +305,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1134631A55A239CB117BF2A8 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-KMOnlineWeb_Example/Pods-KMOnlineWeb_Example-frameworks.sh",
-				"${PODS_ROOT}/TXIMSDK_iOS/ImSDK.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImSDK.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KMOnlineWeb_Example/Pods-KMOnlineWeb_Example-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		4C40B5C80E63CCD3B0DDA7B8 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -391,6 +373,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KMOnlineWeb_Example/Pods-KMOnlineWeb_Example-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FCCD2CE1170C6EA90F8ACE82 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-KMOnlineWeb_Example/Pods-KMOnlineWeb_Example-frameworks.sh",
+				"${PODS_ROOT}/TXIMSDK_iOS/ImSDK.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImSDK.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KMOnlineWeb_Example/Pods-KMOnlineWeb_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

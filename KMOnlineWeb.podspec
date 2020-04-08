@@ -27,9 +27,12 @@ TODO: Add long description of the pod here.
   s.author           = { 'zhenlove' => '121910347@qq.com' }
   s.source           = { :git => 'https://github.com/zhenlove/KMOnlineWeb.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
-  s.xcconfig     = { 'VALID_ARCHS' => 'armv7 arm64 x86_64', }
+  s.xcconfig     = { 'VALID_ARCHS' => 'armv7 arm64 x86_64'}
+  s.pod_target_xcconfig = {'DEFINES_MODULE' => 'YES','OTHER_LDFLAGS' => '"-ObjC"'}
+  s.static_framework = true  #因为 KMAgoraRtc 是静态库，所以本库也需要设置为静态库
   s.ios.deployment_target = '9.0'
   s.swift_version = '5.0'
+#  s.source_files = 'KMOnlineWeb/Classes/**/*{h,m,swift}'
   s.source_files = 'KMOnlineWeb/Classes/**/*{swift}'
   s.resource_bundles = {
     'KMOnlineWeb' => ['KMOnlineWeb/Assets/*']
@@ -37,5 +40,5 @@ TODO: Add long description of the pod here.
   s.dependency 'KMTIMSDK'
   s.dependency 'KMNetwork'
   s.dependency 'KMAgoraRtc'
-  s.dependency 'SDWebImage'
+  s.dependency 'Kingfisher'
 end

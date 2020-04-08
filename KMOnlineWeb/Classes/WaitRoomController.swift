@@ -9,7 +9,7 @@ import UIKit
 import KMAgoraRtc
 import KMNetwork
 import KMTIMSDK
-import SDWebImage
+import Kingfisher
 
 enum RoomState: Int {
     case invalid = -1
@@ -57,7 +57,7 @@ class WaitRoomController: UIViewController,KMCallInfoModel {
         getWaitPeopleNumber(doctorID, channleID)
         doctorName.text = callName
         if let image = callImage {
-            doctorImageView.sd_setImage(with: URL(string: image), placeholderImage: nil)
+            doctorImageView.kf.setImage(with: URL(string: image))
         }
     }
     

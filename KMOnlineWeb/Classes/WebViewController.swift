@@ -11,8 +11,6 @@ import KMTIMSDK
 
 
 class WebViewController: UIViewController {
-    public var callName: String?
-    public var callImage: String?
     public var userInfoModel: UserInfoModel!
     public var urlString: String!
     

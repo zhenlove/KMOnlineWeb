@@ -8,7 +8,7 @@
 import Foundation
 import KMNetwork
 import KMTIMSDK
-
+import ImSDK
 
 class WebViewController: UIViewController {
     public var userInfoModel: UserInfoModel!
@@ -60,11 +60,12 @@ class WebViewController: UIViewController {
     
     /// 登录IM
     func loginIM() {
-        let manager = KMTIMManager.sharedInstance()
-        manager.setup(withAppId: imConfigModel.sdkAppID!,
-                      userSig: imConfigModel.userSig!,
-                      andIdentifier: imConfigModel.identifier!)
-        manager.login(ofSucc: {
+        
+        let manager = KMIMManager.sharedInstance
+        manager.setupSig(appid: imConfigModel.sdkAppID!,
+                         userSig: imConfigModel.userSig!,
+                         identifier: imConfigModel.identifier!)
+        manager.login(succ: {
             print("IM登录成功")
             let dic = [TIMProfileTypeKey_Nick: self.userInfoModel.UserCNName!,
                        TIMProfileTypeKey_FaceUrl: self.userInfoModel.PhotoUrl!]
@@ -84,10 +85,11 @@ extension WebViewController: JSCallBackDelegate {
     func jsCallChatWithParameterDictionary(_ pDictionary: [String : AnyObject]) {
         if let channelID = pDictionary["ChanelId"] as? Int,
             let consultState = pDictionary["ConsultState"] as? Int,
-                let state = KMConsultationState(rawValue: consultState) {
-                    let chat = KMChatController()
+                let state = ConsultatingState(rawValue: consultState) {
+
+                    let chat = IMChatController()
                     chat.convId = "\(channelID)"
-                    chat.consulationState = state
+                    chat.state = state
                     chat.title = "图文问诊"
                     chat.delegate = self
                     navigationController?.pushViewController(chat, animated: true)
@@ -134,21 +136,21 @@ extension WebViewController: UINavigationControllerDelegate {
 }
 
 
-
-extension WebViewController: KMChatControllerDelegate {
-    func clickePatientInfo(_ patientInfoDic: [AnyHashable: Any]!) {
-        let infoVC = KMPatientInfoVC()
-        infoVC.userInfoDic = patientInfoDic
-        navigationController?.pushViewController(infoVC, animated: true)
-    }
-    
-    func clickePrescribe(_ prescribeUrl: String!, oPDRegisterID OPDRegisterID: String!) {
-        let web = KMIMWebViewController()
-        web.prescribeUrl = prescribeUrl
-        navigationController?.pushViewController(web, animated: true)
-    }
-    
+extension WebViewController: IMChatControllerDelegate {
     func clickeBackBtnController() -> Bool {
         return true
     }
+    
+    func clickePatientInfo(_ infoDic: [String : Any]) {
+        if let block = OnlineWebManager.sharedInstance.patientInfoBlock {
+            block(infoDic)
+        }
+    }
+    
+    func clickePrescribe(_ prescribeUrl: String?, _ opdRegisterID: String?) {
+        if let block = OnlineWebManager.sharedInstance.prescribeBlock {
+            block(prescribeUrl,opdRegisterID)
+        }
+    }
+    
 }

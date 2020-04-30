@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'KMOnlineWeb'
-  s.version          = '0.1.4'
+  s.version          = '0.1.5'
   s.summary          = 'A short description of KMOnlineWeb.'
 
 # This description is used to generate tags and improve search results.
@@ -37,8 +37,8 @@ TODO: Add long description of the pod here.
   s.resource_bundles = {
     'KMOnlineWeb' => ['KMOnlineWeb/Assets/*']
   }
-  s.dependency 'KMTIMSDK'
-  s.dependency 'KMNetwork'
-  s.dependency 'KMAgoraRtc'
-  s.dependency 'Kingfisher'
+  s.dependency 'KMTIMSDK','~> 0.1.6'
+  s.dependency 'KMNetwork','~> 0.1.4'
+  s.dependency 'KMAgoraRtc','~> 1.0.7'
+  s.dependency 'Kingfisher','~> 4.10.1'
 end

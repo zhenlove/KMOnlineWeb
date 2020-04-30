@@ -52,7 +52,7 @@ class WaitRoomController: UIViewController,KMCallInfoModel {
     override func viewDidLoad() {
         super.viewDidLoad()
         KMFloatViewManager.sharedInstance.delegate = self
-        KMTIMManager.sharedInstance().delegate = self
+        KMIMManager.sharedInstance.delegate = self
         getMediaConfig()
         getWaitPeopleNumber(doctorID, channleID)
         doctorName.text = callName
@@ -192,11 +192,10 @@ extension WaitRoomController: KMFloatViewManagerDelegate {
         print("开处方")
     }
 }
-extension WaitRoomController: KMRoomStateListenerDelegate {
-    func listener(toChannelID channelID: String,
-                  withCustomElem customElem: [AnyHashable: Any]) {
+extension WaitRoomController:RoomStateListenerDelegate {
+    func listener(channelID: String, customElem: [String : Any]?) {
         if mediaConfigModel.ILiveConfig?.ChannelID == channelID {
-            if let state = customElem["State"] as? Int {
+            if let state = customElem?["State"] as? Int {
                 if RoomState.init(rawValue: state) == .calling {
                     let callSystem = KMCallingSystemController()
                     callSystem.modalPresentationStyle = .fullScreen
@@ -213,7 +212,7 @@ extension WaitRoomController: KMCallingSystemOperationDelegate {
         updateChatRoom(mediaConfigModel.ILiveConfig?.ChannelID, .consulting)
         if let channelID = mediaConfigModel.ILiveConfig?.ChannelID {
             
-            let chat = KMChatController()
+            let chat = IMChatController()
             chat.convId = channelID
             chat.delegate = self
             chat.title = "视频问诊"
@@ -234,19 +233,8 @@ extension WaitRoomController: KMCallingSystemOperationDelegate {
         updateChatRoom(mediaConfigModel.ILiveConfig?.ChannelID, .waiting)
     }
 }
-extension WaitRoomController: KMChatControllerDelegate {
-    func clickePatientInfo(_ patientInfoDic: [AnyHashable: Any]!) {
-        let infoVC = KMPatientInfoVC()
-        infoVC.userInfoDic = patientInfoDic
-        navigationController?.pushViewController(infoVC, animated: true)
-    }
-    
-    func clickePrescribe(_ prescribeUrl: String!, oPDRegisterID OPDRegisterID: String!) {
-        let web = KMIMWebViewController()
-        web.prescribeUrl = prescribeUrl
-        navigationController?.pushViewController(web, animated: true)
-    }
-    
+
+extension WaitRoomController:IMChatControllerDelegate {
     func clickeBackBtnController() -> Bool {
         if KMFloatViewManager.sharedInstance.isShow {
             showTipInquiry()
@@ -255,4 +243,17 @@ extension WaitRoomController: KMChatControllerDelegate {
             return true
         }
     }
+    
+    func clickePatientInfo(_ infoDic: [String : Any]) {
+        if let block = OnlineWebManager.sharedInstance.patientInfoBlock {
+            block(infoDic)
+        }
+    }
+    
+    func clickePrescribe(_ prescribeUrl: String?, _ opdRegisterID: String?) {
+        if let block = OnlineWebManager.sharedInstance.prescribeBlock {
+            block(prescribeUrl,opdRegisterID)
+        }
+    }
+    
 }

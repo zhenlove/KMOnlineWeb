@@ -46,8 +46,7 @@
     
     [[OnlineWebManager sharedInstance] reloadWebViewWithUrl:@"https://pruser.kmwlyy.com/h5/"
                                                 userInfoDic:dic
-                                         showViewController:self];
-    
+                                             fromNavControl:self.navigationController];
 }
 
 @end

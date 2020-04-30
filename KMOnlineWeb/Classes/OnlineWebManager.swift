@@ -8,17 +8,22 @@
 import Foundation
 import KMNetwork
 
+public typealias funcPatientInfoBlock = (_ info:[String:Any]) -> Void
+public typealias funcPrescribeBlock = (_ url:String?,_ opdRegisterID:String?) -> Void
+
 @objc open class OnlineWebManager: NSObject {
     var baseUrl: String!
-    var showVC: UIViewController!
+    var navControl: UINavigationController!
     var userInfoModel: UserInfoModel!
+    @objc public var patientInfoBlock:funcPatientInfoBlock?
+    @objc public var prescribeBlock:funcPrescribeBlock?
     @objc public static let sharedInstance: OnlineWebManager = {
         OnlineWebManager()
     }()
     
-    @objc public func reloadWebView(Url url: String, userInfoDic dic: [String: Any], showViewController fromVC: UIViewController) {
+    @objc public func reloadWebView(Url url: String, userInfoDic dic: [String: Any], fromNavControl fromVC: UINavigationController) {
         baseUrl = url
-        showVC = fromVC
+        navControl = fromVC
         loginOnline(dic)
     }
     
@@ -51,7 +56,7 @@ import KMNetwork
         let webVC = WebViewController()
         webVC.urlString = url
         webVC.userInfoModel = userInfoModel
-        showVC.navigationController?.pushViewController(webVC, animated: true)
+        navControl.pushViewController(webVC, animated: true)
     }
     
     func spliceString(_ dic: [String: String?]) -> String {

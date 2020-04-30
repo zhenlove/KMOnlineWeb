@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		04A282B4055B2E8F66D713B6 /* libPods-KMOnlineWeb_Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 31AA42B21F4D5366B09A6A87 /* libPods-KMOnlineWeb_Example.a */; };
-		46E4ED49348D5C5D7EA769BF /* libPods-KMOnlineWeb_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B19B17D22DBFF21C1539CA12 /* libPods-KMOnlineWeb_Tests.a */; };
+		13BAFA49D0BD1B29CD87C1ED /* Pods_KMOnlineWeb_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87B9F14ACADD539D1E5B539B /* Pods_KMOnlineWeb_Example.framework */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -17,29 +16,13 @@
 		6003F59E195388D20070C39A /* KMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F59D195388D20070C39A /* KMAppDelegate.m */; };
 		6003F5A7195388D20070C39A /* KMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5A6195388D20070C39A /* KMViewController.m */; };
 		6003F5A9195388D20070C39A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5A8195388D20070C39A /* Images.xcassets */; };
-		6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F5AF195388D20070C39A /* XCTest.framework */; };
-		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
-		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
-		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
-		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		6454450124348B7E00249867 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6454450024348B7E00249867 /* Photo.swift */; };
 		6459EC8624234E9100795828 /* KMTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6459EC8524234E9100795828 /* KMTest.swift */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		6003F5B3195388D20070C39A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6003F582195388D10070C39A /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 6003F589195388D20070C39A;
-			remoteInfo = KMOnlineWeb;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		048CAE84310F2CE38DECB9F4 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		31AA42B21F4D5366B09A6A87 /* libPods-KMOnlineWeb_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KMOnlineWeb_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E7C1B61D39B698158E6F164 /* KMOnlineWeb.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = KMOnlineWeb.podspec; path = ../KMOnlineWeb.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		6003F58A195388D20070C39A /* KMOnlineWeb_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KMOnlineWeb_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -54,7 +37,6 @@
 		6003F5A5195388D20070C39A /* KMViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KMViewController.h; sourceTree = "<group>"; };
 		6003F5A6195388D20070C39A /* KMViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KMViewController.m; sourceTree = "<group>"; };
 		6003F5A8195388D20070C39A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		6003F5AE195388D20070C39A /* KMOnlineWeb_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KMOnlineWeb_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F5AF195388D20070C39A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		6003F5B7195388D20070C39A /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -67,8 +49,9 @@
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7DD11717805480DD54F53EE4 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		827BC1957A83641E27811715 /* Pods-KMOnlineWeb_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KMOnlineWeb_Example.debug.xcconfig"; path = "Target Support Files/Pods-KMOnlineWeb_Example/Pods-KMOnlineWeb_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		B19B17D22DBFF21C1539CA12 /* libPods-KMOnlineWeb_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KMOnlineWeb_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		87B9F14ACADD539D1E5B539B /* Pods_KMOnlineWeb_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KMOnlineWeb_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B893201EDCC12BABD94803B3 /* Pods-KMOnlineWeb_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KMOnlineWeb_Tests.debug.xcconfig"; path = "Target Support Files/Pods-KMOnlineWeb_Tests/Pods-KMOnlineWeb_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		D0FAF549FCC1E6D44985748F /* Pods_KMOnlineWeb_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KMOnlineWeb_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D823E92EECA2A88D41A3C413 /* Pods-KMOnlineWeb_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KMOnlineWeb_Example.release.xcconfig"; path = "Target Support Files/Pods-KMOnlineWeb_Example/Pods-KMOnlineWeb_Example.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -80,18 +63,7 @@
 				6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */,
 				6003F592195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F58E195388D20070C39A /* Foundation.framework in Frameworks */,
-				04A282B4055B2E8F66D713B6 /* libPods-KMOnlineWeb_Example.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		6003F5AB195388D20070C39A /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */,
-				6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */,
-				6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */,
-				46E4ED49348D5C5D7EA769BF /* libPods-KMOnlineWeb_Tests.a in Frameworks */,
+				13BAFA49D0BD1B29CD87C1ED /* Pods_KMOnlineWeb_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,7 +86,6 @@
 			isa = PBXGroup;
 			children = (
 				6003F58A195388D20070C39A /* KMOnlineWeb_Example.app */,
-				6003F5AE195388D20070C39A /* KMOnlineWeb_Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -126,8 +97,8 @@
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
 				6003F5AF195388D20070C39A /* XCTest.framework */,
-				31AA42B21F4D5366B09A6A87 /* libPods-KMOnlineWeb_Example.a */,
-				B19B17D22DBFF21C1539CA12 /* libPods-KMOnlineWeb_Tests.a */,
+				87B9F14ACADD539D1E5B539B /* Pods_KMOnlineWeb_Example.framework */,
+				D0FAF549FCC1E6D44985748F /* Pods_KMOnlineWeb_Tests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -212,8 +183,8 @@
 				6003F586195388D20070C39A /* Sources */,
 				6003F587195388D20070C39A /* Frameworks */,
 				6003F588195388D20070C39A /* Resources */,
-				D67EB9DDB75C005669DF7AEF /* [CP] Copy Pods Resources */,
-				FCCD2CE1170C6EA90F8ACE82 /* [CP] Embed Pods Frameworks */,
+				E700D15E15DC37B594ED760F /* [CP] Embed Pods Frameworks */,
+				75C695F4B0C05FA174A559BC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -223,25 +194,6 @@
 			productName = KMOnlineWeb;
 			productReference = 6003F58A195388D20070C39A /* KMOnlineWeb_Example.app */;
 			productType = "com.apple.product-type.application";
-		};
-		6003F5AD195388D20070C39A /* KMOnlineWeb_Tests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 6003F5C2195388D20070C39A /* Build configuration list for PBXNativeTarget "KMOnlineWeb_Tests" */;
-			buildPhases = (
-				AC94F11A51C375464A4E0423 /* [CP] Check Pods Manifest.lock */,
-				6003F5AA195388D20070C39A /* Sources */,
-				6003F5AB195388D20070C39A /* Frameworks */,
-				6003F5AC195388D20070C39A /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				6003F5B4195388D20070C39A /* PBXTargetDependency */,
-			);
-			name = KMOnlineWeb_Tests;
-			productName = KMOnlineWebTests;
-			productReference = 6003F5AE195388D20070C39A /* KMOnlineWeb_Tests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -256,10 +208,6 @@
 					6003F589195388D20070C39A = {
 						DevelopmentTeam = XYBK7B7U6R;
 						LastSwiftMigration = 1130;
-					};
-					6003F5AD195388D20070C39A = {
-						DevelopmentTeam = XYBK7B7U6R;
-						TestTargetID = 6003F589195388D20070C39A;
 					};
 				};
 			};
@@ -278,7 +226,6 @@
 			projectRoot = "";
 			targets = (
 				6003F589195388D20070C39A /* KMOnlineWeb_Example */,
-				6003F5AD195388D20070C39A /* KMOnlineWeb_Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -291,14 +238,6 @@
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		6003F5AC195388D20070C39A /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,29 +266,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		AC94F11A51C375464A4E0423 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-KMOnlineWeb_Tests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D67EB9DDB75C005669DF7AEF /* [CP] Copy Pods Resources */ = {
+		75C695F4B0C05FA174A559BC /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -358,35 +275,57 @@
 				"${PODS_ROOT}/Target Support Files/Pods-KMOnlineWeb_Example/Pods-KMOnlineWeb_Example-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/KMAgoraRtc/AgoraRtc.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/KMOnlineWeb/KMOnlineWeb.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/KMTIMSDK/KMTIMImage.bundle",
-				"${PODS_ROOT}/TXIMSDK_TUIKit_iOS/TUIKit/Resources/TUIKitFace.bundle",
-				"${PODS_ROOT}/TXIMSDK_TUIKit_iOS/TUIKit/Resources/TUIKitResource.bundle",
+				"${PODS_ROOT}/KMTIM/TUIKit/Resources/TUIKitFace.bundle",
+				"${PODS_ROOT}/KMTIM/TUIKit/Resources/TUIKitResource.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/KMTIMSDK/KMTIMSDK.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AgoraRtc.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/KMOnlineWeb.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/KMTIMImage.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TUIKitFace.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TUIKitResource.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/KMTIMSDK.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KMOnlineWeb_Example/Pods-KMOnlineWeb_Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		FCCD2CE1170C6EA90F8ACE82 /* [CP] Embed Pods Frameworks */ = {
+		E700D15E15DC37B594ED760F /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-KMOnlineWeb_Example/Pods-KMOnlineWeb_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Bagel/Bagel.framework",
+				"${BUILT_PRODUCTS_DIR}/CocoaAsyncSocket/CocoaAsyncSocket.framework",
+				"${BUILT_PRODUCTS_DIR}/ISVImageScrollView/ISVImageScrollView.framework",
+				"${BUILT_PRODUCTS_DIR}/KMNetwork/KMNetwork.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/MMLayout/MMLayout.framework",
+				"${BUILT_PRODUCTS_DIR}/ReactiveObjC/ReactiveObjC.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${PODS_ROOT}/TXIMSDK_iOS/ImSDK.framework",
+				"${BUILT_PRODUCTS_DIR}/Toast/Toast.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bagel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaAsyncSocket.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ISVImageScrollView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KMNetwork.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MMLayout.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveObjC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImSDK.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -408,23 +347,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6003F5AA195388D20070C39A /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6003F5BC195388D20070C39A /* Tests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		6003F5B4195388D20070C39A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 6003F589195388D20070C39A /* KMOnlineWeb_Example */;
-			targetProxy = 6003F5B3195388D20070C39A /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		6003F596195388D20070C39A /* InfoPlist.strings */ = {
@@ -570,56 +493,6 @@
 			};
 			name = Release;
 		};
-		6003F5C3195388D20070C39A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B893201EDCC12BABD94803B3 /* Pods-KMOnlineWeb_Tests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = XYBK7B7U6R;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Tests/Tests-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "Tests/Tests-Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KMOnlineWeb_Example.app/KMOnlineWeb_Example";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		6003F5C4195388D20070C39A /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 62DBAC249A2FD586D0E749BA /* Pods-KMOnlineWeb_Tests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = XYBK7B7U6R;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Tests/Tests-Prefix.pch";
-				INFOPLIST_FILE = "Tests/Tests-Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KMOnlineWeb_Example.app/KMOnlineWeb_Example";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -637,15 +510,6 @@
 			buildConfigurations = (
 				6003F5C0195388D20070C39A /* Debug */,
 				6003F5C1195388D20070C39A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		6003F5C2195388D20070C39A /* Build configuration list for PBXNativeTarget "KMOnlineWeb_Tests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				6003F5C3195388D20070C39A /* Debug */,
-				6003F5C4195388D20070C39A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

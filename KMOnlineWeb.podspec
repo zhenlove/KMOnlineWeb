@@ -37,7 +37,7 @@ TODO: Add long description of the pod here.
   s.resource_bundles = {
     'KMOnlineWeb' => ['KMOnlineWeb/Assets/*']
   }
-  s.dependency 'KMTIMSDK','~> 0.1.6'
+  s.dependency 'KMTIMSDK','~> 0.1.9'
   s.dependency 'KMNetwork','~> 0.1.4'
   s.dependency 'KMAgoraRtc','~> 1.0.7'
   s.dependency 'Kingfisher','~> 4.10.1'

@@ -193,10 +193,10 @@ extension WaitRoomController: KMFloatViewManagerDelegate {
     }
 }
 extension WaitRoomController:RoomStateListenerDelegate {
-    func listener(channelID: String, customElem: [String : Any]?) {
-        if mediaConfigModel.ILiveConfig?.ChannelID == channelID {
-            if let state = customElem?["State"] as? Int {
-                if RoomState.init(rawValue: state) == .calling {
+    func listener(channelID: Int?, customElem: RoomStateChanged) {
+        if channelID == self.channleID {
+            if let state = customElem.State {
+                if  RoomState.init(rawValue: state) == .calling {
                     let callSystem = KMCallingSystemController()
                     callSystem.modalPresentationStyle = .fullScreen
                     callSystem.delegate = self

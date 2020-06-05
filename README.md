@@ -1,6 +1,6 @@
 # KMOnlineWeb
 
-[![CI Status](https://img.shields.io/travis/zhenlove/KMOnlineWeb.svg?style=flat)](https://travis-ci.com/zhenlove/KMOnlineWeb)
+[![CI Status](https://api.travis-ci.com/zhenlove/KMOnlineWeb.svg?style=flat)](https://travis-ci.com/zhenlove/KMOnlineWeb)
 [![Version](https://img.shields.io/cocoapods/v/KMOnlineWeb.svg?style=flat)](https://cocoapods.org/pods/KMOnlineWeb)
 [![License](https://img.shields.io/cocoapods/l/KMOnlineWeb.svg?style=flat)](https://cocoapods.org/pods/KMOnlineWeb)
 [![Platform](https://img.shields.io/cocoapods/p/KMOnlineWeb.svg?style=flat)](https://cocoapods.org/pods/KMOnlineWeb)
